@@ -1,0 +1,4 @@
+clear all;
+m=128;
+dx=2*pi/m;
+x=-pi+dx:dx:pi;

@@ -1,0 +1,18 @@
+#!/bin/bash
+mkdir graphs
+
+matlab -nojvm -r combine_Data
+
+for i in {1..9}
+do      
+        cat x_coords_$i | sed 's/,/ /g' > x_coords_$i_new
+        cat y_coords_$i | sed 's/,/ /g' > y_coords_$i_new
+        mv x_coords_$i_new x_coords_$i
+        mv y_coords_$i_new y_coords_$i
+ 
+	cp x_coords_$i x_coords
+	cp y_coords_$i y_coords
+	R --vanilla <create_graphs.r> blah
+	rm -f blah x_coords y_coords 
+	mv foo.pdf graphs/time_$i.pdf	
+done

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in {1..9}
+do
+	cat x_coords_$i | sed 's/,/ /g' > x_coords_$i_new
+	cat y_coords_$i | sed 's/,/ /g' > y_coords_$i_new
+	mv x_coords_$i_new x_coords_$i
+	mv y_coords_$i_new y_coords_$i
+done

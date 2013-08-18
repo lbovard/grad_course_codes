@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for i in {1..10}
+do
+        matlab_desktop -nosplash -nodesktop -r vortex_simulation
+        mv x_positions data/x_positions_$i
+        mv y_positions data/y_positions_$i
+done
